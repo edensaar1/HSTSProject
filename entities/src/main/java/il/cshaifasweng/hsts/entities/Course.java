@@ -1,21 +1,24 @@
 package il.cshaifasweng.hsts.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Course {
-    private List<Question> questions;
+    private Subject subject;
+
     private String courseId;
     private String courseName;
 
-    public Course(List<Question> questions, String courseId, String courseName){
-        this.questions = questions;
+    public Course(Subject subject, String courseId, String courseName){
+        this.subject = subject;
         this.courseId = courseId;
         this.courseName = courseName;
 
     }
 
-    public List<Question> getQuestions() {
-        return questions;
+
+    public Subject getSubject() {
+        return subject;
     }
 
     public String getCourseId() {
@@ -27,9 +30,8 @@ public class Course {
     }
 
 
-
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     public void setCourseId(String courseId) {

@@ -1,11 +1,8 @@
 package il.cshaifasweng.hsts.entities.view;
 
-import il.cshaifasweng.hsts.entities.enums.DifficultyLevel;
-
 import java.io.Serializable;
 
-public class QuestionView implements Serializable {
-    private String courseId;
+public class StudentQuestionView implements Serializable {
 
     private String questionId;
     private String text;
@@ -13,30 +10,24 @@ public class QuestionView implements Serializable {
     private String answer2;
     private String answer3;
     private String answer4;
+    private String illustrationPath;
 
 
-    public QuestionView(){
-    }
 
-
-    public QuestionView(String courseId, String questionId, String text, String answer1, String answer2,
-                        String answer3, String answer4){
-        this.courseId = courseId;
+    public StudentQuestionView(String courseId, String questionId, String text, String answer1, String answer2,
+                               String answer3, String answer4, String illustrationPath){
         this.questionId = questionId;
         this.text = text;
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
         this.answer4 = answer4;
+        this.illustrationPath = illustrationPath;
 
     }
 
     //GETTERS//
 
-
-    public String getCourseId() {
-        return courseId;
-    }
 
     public String getQuestionId() {
         return questionId;
@@ -62,12 +53,12 @@ public class QuestionView implements Serializable {
         return answer4;
     }
 
+    public String getIllustrationPath() {
+        return illustrationPath;
+    }
+
     //SETTERS//
 
-
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
-    }
 
     public void setQuestionId(String questionId) {
         this.questionId = questionId;
@@ -93,5 +84,7 @@ public class QuestionView implements Serializable {
         this.answer4 = answer4;
     }
 
-
+    public void setIllustrationPath(String illustrationPath) {
+        this.illustrationPath = illustrationPath;
+    }
 }
