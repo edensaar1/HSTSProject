@@ -12,7 +12,7 @@ public class Exam {
     private List<ExamInstance> examInstances;
     private List<ExamQuestion> examQuestions;
 
-
+//field//
     private String examId;
     private int duration;
     private String studentInstructions;
