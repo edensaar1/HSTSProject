@@ -8,7 +8,7 @@ public class Exam {
     //references//
     private Teacher teacher;
     private Course course;
-    private ExamGenerationCriteria criteria;
+
     private List<ExamInstance> examInstances;
     private List<ExamQuestion> examQuestions;
 

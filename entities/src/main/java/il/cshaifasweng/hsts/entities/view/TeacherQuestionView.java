@@ -1,7 +1,9 @@
-package il.cshaifasweng.hsts.entities;
+package il.cshaifasweng.hsts.entities.view;
 
-public class Question {
-    private Course course;
+import java.io.Serializable;
+
+public class TeacherQuestionView implements Serializable {
+    private String courseId;
 
     private String questionId;
     private String description;
@@ -12,13 +14,10 @@ public class Question {
     private int correctAnswer;
     private String illustrationPath;
 
-    protected Question(){
-    }
 
-    public Question(Course course, String questionId, String description, String answer1, String answer2, String answer3,
-                      String answer4, int correctAnswer,
-                      String illustrationPath){
-        this.course = course;
+    public TeacherQuestionView(String courseId, String questionId, String description, String answer1, String answer2,
+                               String answer3, String answer4, int correctAnswer, String illustrationPath){
+        this.courseId = courseId;
         this.questionId = questionId;
         this.description = description;
         this.answer1 = answer1;
@@ -30,13 +29,13 @@ public class Question {
 
     }
 
-//GETTERS//
 
-    public Course getCourse() {
-        return course;
+    //GETTERS//
+    public String getCourseId() {
+        return courseId;
     }
 
-    String getQuestionId(){
+    public String getQuestionId(){
         return this.questionId;
     }
 
@@ -72,8 +71,9 @@ public class Question {
 
 //SETTERS//
 
-    public void setCourse(Course course) {
-        this.course = course;
+
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
     }
 
     public void setQuestionId(String questionId) {
@@ -104,9 +104,9 @@ public class Question {
         this.correctAnswer = correctAnswer;
     }
 
-
     public void setIllustrationPath(String illustrationPath) {
         this.illustrationPath = illustrationPath;
     }
 
 }
+
