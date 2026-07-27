@@ -2,6 +2,7 @@ package il.cshaifasweng.hsts.entities;
 
 import il.cshaifasweng.hsts.entities.enums.ExamStatus;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Exam {
@@ -9,8 +10,7 @@ public class Exam {
     private Teacher teacher;
     private Course course;
 
-    private List<ExamInstance> examInstances;
-    private List<ExamQuestion> examQuestions;
+    private List<ExamQuestion> examQuestions = new ArrayList<>();
 
 //field//
     private String examId;
@@ -21,10 +21,30 @@ public class Exam {
     private String rejectionReason;
 
 
+    protected Exam(){
+    }
 
-    public Exam(String examId, int duration, String studentInstructions, String teacherInstructions,
-                ExamStatus status, String rejectionReason){
+    public Exam(Course course, Teacher teacher, String examId, int duration, String studentInstructions,
+                String teacherInstructions){
+        this.course =course;
+        this.teacher = teacher;
+        this.examId = examId;
+        this.duration = duration;
+        this.studentInstructions = studentInstructions;
+        this.teacherInstructions = teacherInstructions;
 
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public List<ExamQuestion> getExamQuestions() {
+        return examQuestions;
     }
 
     public String getExamId() {
@@ -77,6 +97,11 @@ public class Exam {
     }
 
 
+
+
+
+
+
     public boolean isApproved(){
         return status == ExamStatus.APPROVED;
     }
@@ -86,12 +111,23 @@ public class Exam {
     }
 
     public int calculateTotalPoints(){
-        //later//
-        return 1;
+        int totalPoints = 0;
+        for(ExamQuestion examQuestion : examQuestions){
+            totalPoints += examQuestion.getPoints();
+        }
+        return totalPoints;
     }
 
+    public void addExamQuestion(ExamQuestion examQuestion) {
+        examQuestions.add(examQuestion);
+        examQuestion.setExam(this);
+    }
 
-
+    public void removeExamQuestion(ExamQuestion examQuestion) {
+        if(examQuestions.remove(examQuestion)) {
+            examQuestion.setExam(null);
+        }
+    }
 
 
 }

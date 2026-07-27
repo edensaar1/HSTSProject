@@ -10,14 +10,14 @@
 
 -[X]Question
 -[X]Course
--[]Exam
--[]ExamQuestion
+-[X]Exam
+-[X]ExamQuestion
 -[*]HSTSMessage
 
 
 -[X]TeacherQuestionView
 -[X]StudentQuestionView
 -[]CourseView
--[]ExamView
+-[X]ExamView
 -[]ExamQuestionView
 

@@ -9,9 +9,11 @@ public class Course {
     private String courseId;
     private String courseName;
 
-    public Course(Subject subject, String courseId, String courseName){
+    protected Course() {
+    }
+
+    public Course(Subject subject, String courseName){
         this.subject = subject;
-        this.courseId = courseId;
         this.courseName = courseName;
 
     }
@@ -34,11 +36,10 @@ public class Course {
         this.subject = subject;
     }
 
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
-    }
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
+
+
 }
