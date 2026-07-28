@@ -1,15 +1,36 @@
 package il.cshaifasweng.hsts.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "questions")
 public class Question {
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
+    @Id
+    @Column(name = "question_id", length = 5)
     private String questionId;
+
+    @Column(nullable = false)
     private String description;
+
+    @Column(nullable = false)
     private String answer1;
+
+    @Column(nullable = false)
     private String answer2;
+
+    @Column(nullable = false)
     private String answer3;
+
+    @Column(nullable = false)
     private String answer4;
+
+    @Column(name = "correct_answer", nullable = false)
     private int correctAnswer;
+
     private String illustrationPath;
 
     protected Question(){
@@ -36,7 +57,7 @@ public class Question {
         return course;
     }
 
-    String getQuestionId(){
+    public String getQuestionId(){
         return this.questionId;
     }
 
@@ -71,14 +92,6 @@ public class Question {
 
 
 //SETTERS//
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    public void setQuestionId(String questionId) {
-        this.questionId = questionId;
-    }
 
     public void setDescription(String description) {
         this.description = description;

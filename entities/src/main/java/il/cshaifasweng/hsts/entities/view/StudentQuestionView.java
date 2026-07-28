@@ -3,6 +3,7 @@ package il.cshaifasweng.hsts.entities.view;
 import java.io.Serializable;
 
 public class StudentQuestionView implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String questionId;
     private String text;
@@ -14,7 +15,7 @@ public class StudentQuestionView implements Serializable {
 
 
 
-    public StudentQuestionView(String courseId, String questionId, String text, String answer1, String answer2,
+    public StudentQuestionView(String questionId, String text, String answer1, String answer2,
                                String answer3, String answer4, String illustrationPath){
         this.questionId = questionId;
         this.text = text;

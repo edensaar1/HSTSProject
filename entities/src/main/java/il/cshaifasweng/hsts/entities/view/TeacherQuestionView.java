@@ -3,6 +3,8 @@ package il.cshaifasweng.hsts.entities.view;
 import java.io.Serializable;
 
 public class TeacherQuestionView implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String courseId;
 
     private String questionId;

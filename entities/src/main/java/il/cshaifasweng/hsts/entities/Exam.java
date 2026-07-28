@@ -2,22 +2,41 @@ package il.cshaifasweng.hsts.entities;
 
 import il.cshaifasweng.hsts.entities.enums.ExamStatus;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "exams")
 public class Exam {
     //references//
+    @ManyToOne
+    @JoinColumn(name = "teacher_id", nullable = false)
     private Teacher teacher;
+
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
+    @OneToMany(mappedBy = "exam", cascade = CascadeType.ALL)
     private List<ExamQuestion> examQuestions = new ArrayList<>();
 
 //field//
+    @Id
+    @Column(name = "exam_id", length = 6)
     private String examId;
+
+    @Column(nullable = false)
     private int duration;
+    @Column(name = "student_Instructions")
     private String studentInstructions;
+    @Column(name = "teacher_Instructions")
     private String teacherInstructions;
-    private ExamStatus status;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ExamStatus status = ExamStatus.DRAFT;
+
     private String rejectionReason;
 
 
@@ -71,10 +90,6 @@ public class Exam {
         return rejectionReason;
     }
 
-
-    public void setExamId(String examId) {
-        this.examId = examId;
-    }
 
     public void setDuration(int duration) {
         this.duration = duration;
