@@ -1,15 +1,12 @@
 package il.cshaifasweng.hsts.entities.view;
 
-import il.cshaifasweng.hsts.entities.Question;
+import java.io.Serializable;
 
-import java.util.List;
+public class CourseView implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-public class CourseView {
     private String courseId;
     private String courseName;
-
-    public CourseView() {
-    }
 
 
     public CourseView(String courseId, String courseName){

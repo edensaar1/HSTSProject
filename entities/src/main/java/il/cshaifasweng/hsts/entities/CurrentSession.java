@@ -11,16 +11,16 @@ public class CurrentSession {
         return currentUser;
     }
 
-    public void setCurrentUser(AuthorizedUser currentUser) {
-        this.currentUser = currentUser;
+    public String getUserId() {
+        return currentUser.getUserId();
     }
 
-    public String getUserId() {
-        return "user id?";
+    public String getFullName() {
+        return currentUser.getFullName();
     }
 
     public String getRole(){
-        return "role?";
+        return currentUser.getRole();
     }
 
 }
