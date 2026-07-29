@@ -60,13 +60,12 @@ public class QuestionRepository {
         }
     }
 
-    public boolean deleteQuestion(String questionId){
+    public boolean deleteQuestion(Question question){
         Transaction tx = null;
 
         try (Session session = DatabaseManager.getSession()) {
             tx = session.beginTransaction();
 
-            Question question = session.get(Question.class, questionId);
             if (question == null) {
                 tx.rollback();
                 return false;
